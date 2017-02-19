@@ -62,6 +62,9 @@ class Employee extends Agent {
   }
 
   isNearby(employee) {
+    if (!employee.mesh) {
+      return false;
+    }
     var distance = Math.pow(employee.mesh.position.x - this.mesh.position.x, 2) +
       Math.pow(employee.mesh.position.y - this.mesh.position.y, 2);
     var inRange = distance < Math.pow(CHAT_RADIUS, 2);
